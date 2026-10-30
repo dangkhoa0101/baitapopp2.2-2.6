@@ -1,0 +1,65 @@
+public class Account {
+    private int id;
+    private Customer customer;
+    private double balance = 0.0;
+
+    // Constructor có số dư ban đầu
+    public Account(int id, Customer customer, double balance) {
+        this.id = id;
+        this.customer = customer;
+        this.balance = balance;
+    }
+
+    // Constructor mặc định số dư bằng 0.0
+    public Account(int id, Customer customer) {
+        this.id = id;
+        this.customer = customer;
+    }
+
+    // Getter cho id
+    public int getId() {
+        return id;
+    }
+
+    // Getter cho customer
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    // Getter cho balance
+    public double getBalance() {
+        return balance;
+    }
+
+    // Setter cho balance
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
+    // Lấy tên của khách hàng thông qua đối tượng customer
+    public String getCustomerName() {
+        return customer.getName();
+    }
+
+    // Nạp tiền vào tài khoản
+    public Account deposit(double amount) {
+        balance += amount;
+        return this;
+    }
+
+    // Rút tiền từ tài khoản
+    public Account withdraw(double amount) {
+        if (balance >= amount) {
+            balance -= amount;
+        } else {
+            System.out.println("amount withdrawn exceeds the current balance!");
+        }
+        return this;
+    }
+
+    // Trả về chuỗi định dạng: "name(id) balance=$xxx.xx" (số dư làm tròn 2 chữ số thập phân)
+    @Override
+    public String toString() {
+        return customer.toString() + " balance=$" + String.format("%.2f", balance);
+    }
+}
