@@ -1,0 +1,33 @@
+public class TestAccount {
+    public static void main(String[] args) {
+        // Kiểm thử lớp Customer
+        Customer c1 = new Customer(88, "Tan Ah Teck", 'm');
+        System.out.println(c1); // Gọi Customer's toString()
+        System.out.println("id is: " + c1.getId());
+        System.out.println("name is: " + c1.getName());
+        System.out.println("gender is: " + c1.getGender());
+
+        System.out.println("-----------------------------------");
+
+        // Kiểm thử lớp Account
+        Account acc1 = new Account(101, c1, 888.8);
+        System.out.println(acc1); // Gọi Account's toString()
+
+        acc1.setBalance(999.9);
+        System.out.println("id is: " + acc1.getId());
+        System.out.println("customer is: " + acc1.getCustomer());
+        System.out.println("balance is: " + acc1.getBalance());
+        System.out.println("customer's name is: " + acc1.getCustomerName());
+
+        System.out.println("-----------------------------------");
+
+        // Kiểm thử deposit và withdraw
+        acc1.deposit(100.1);
+        System.out.println("After deposit $100.1, balance is: $" + String.format("%.2f", acc1.getBalance()));
+
+        acc1.withdraw(2000.0); // Vượt quá số dư -> In ra thông báo lỗi
+        
+        acc1.withdraw(500.0);
+        System.out.println("After withdraw $500.0, balance is: $" + String.format("%.2f", acc1.getBalance()));
+    }
+}
