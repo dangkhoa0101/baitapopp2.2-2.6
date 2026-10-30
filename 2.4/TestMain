@@ -1,0 +1,14 @@
+Tan Ah Teck(88)(10%)
+Tan Ah Teck(88)(8%)
+id is: 88
+name is: Tan Ah Teck
+discount is: 8
+Invoice[id=101,customer=Tan Ah Teck(88)(8%),amount=888.8]
+Invoice[id=101,customer=Tan Ah Teck(88)(8%),amount=999.9]
+id is: 101
+customer is: Tan Ah Teck(88)(8%)
+amount is: 999.9
+customer's id is: 88
+customer's name is: Tan Ah Teck
+customer's discount is: 8
+amount after discount is: 919.91
